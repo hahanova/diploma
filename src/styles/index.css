@@ -1,5 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #e6e9f0;
+}
+
+.main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.section {
+  font-family: 'Arial', sans-serif;
+  color: #9d999d;
+  font-size: 1.2em;
+}
+
+.heading {
+  height: 70px;
+  padding: 20px;
+  color: #feb386;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+@media (max-width: 550px) {
+  .main {
+    width: 100%;
+    margin: 0 10px;
+  }
 }

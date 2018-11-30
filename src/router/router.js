@@ -2,28 +2,23 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Generator from '../components/generator';
+import Home from '../components/home';
 
-function Home() {
+import './menu.css';
+
+function Archive() {
   return (
     <div>
-      <h2>Home</h2>
+      <h2>Archive</h2>
     </div>
   );
 }
 
-function Topics() {
-  return (
-    <div>
-      <h2>Topics</h2>
-    </div>
-  );
-}
-
-export const RouterApp = () => {
+const RouterApp = () => {
   return (
     <Router>
       <div>
-        <ul>
+        <ul className="menu-main">
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -31,16 +26,16 @@ export const RouterApp = () => {
             <Link to="/generator">Generator</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/topics">Archive</Link>
           </li>
         </ul>
 
-        <hr />
-
         <Route exact path="/" component={Home} />
         <Route path="/generator" component={Generator} />
-        <Route path="/topics" component={Topics} />
+        <Route path="/archive" component={Archive} />
       </div>
     </Router >
   );
 }
+
+export default RouterApp;

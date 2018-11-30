@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './generator/App.css';
+import '../generator.css';
 
 export class Signal extends Component {
     constructor(props) {
