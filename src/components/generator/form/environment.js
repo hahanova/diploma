@@ -3,7 +3,7 @@ import React from 'react';
 export const Environment = (props) => {
   return (
     <fieldset className="form__section">
-      <legend className="form__section-name">Environment</legend>
+      <legend className="section-field__name">Environment</legend>
       <label className="form__title" htmlFor="env-name">
         Name:
         <input

@@ -7,6 +7,16 @@ body {
   background-color: #e6e9f0;
 }
 
+input {
+  background: none;
+}
+
+fieldset {
+  display: flex;
+  background: #fff;
+  padding: 10px 0 20px 0;
+}
+
 .main {
   max-width: 700px;
   margin: 0 auto;
@@ -26,6 +36,21 @@ body {
   text-align: center;
   text-transform: uppercase;
   font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.btn{
+  width: 127px;
+  height: 33px;
+  outline: none;
+  border-radius: 2em;
+  border: solid 1px #ccc;
+  font-size: .9em;
+  margin: 0 auto;
+}
+.btn:hover{
+  background: #feb386;
+  color: #fff;
+  border-color: #feb386;
 }
 
 @media (max-width: 550px) {

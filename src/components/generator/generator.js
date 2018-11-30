@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {
   Environment,
+  TransactionsSection,
+  SignalsSection,
 } from './form';
-
-import Transaction from './form/transaction';
-import Signal from './form/signal';
 
 import '../../styles/index.css';
 import './generator.css';
@@ -12,6 +11,7 @@ import './generator.css';
 export default class Generator extends Component {
   constructor() {
     super();
+
     this.state = {
       signals: [{ name: '', type: '', size: '', id: 'signal_1' }],
       transactions: [{ name: '', type: '', size: '', id: 'transaction_1' }]
@@ -23,13 +23,13 @@ export default class Generator extends Component {
     this.signals = [
       { name: '', type: '', size: '', id: 'signal_1' }
     ];
+
     this.name = null;
     this.type = null;
     this.formData = {
       name: '',
       type: ''
     };
-
   }
 
   addTransaction(e) {
@@ -42,7 +42,7 @@ export default class Generator extends Component {
     this.setState({ transactions: this.transactions });
   }
 
-  addSignal(e) {
+  addSignal = (e) =>  {
     e.preventDefault();
     let lastSignal = this.signals[this.signals.length - 1];
     let id = +lastSignal.id.match(/\d+/)[0];
@@ -67,6 +67,7 @@ export default class Generator extends Component {
     for (let i in this.signals) {
       this.signals[i] = this.signals[i].ref.getDataSignals();
     }
+
     console.log('trans', this.transactions);
     console.log('signals', this.signals);
   }
@@ -79,27 +80,24 @@ export default class Generator extends Component {
         </header>
         <section className="page section">
           <form className="form">
-            <Environment formData={ this.formData } />
-
-            <fieldset className="form__section">
-              <legend className="form__section-name">Transactions</legend>
-
-              {this.state.transactions ? this.state.transactions.map((trans, key) =>
-                <Transaction ref={ (ref) => this.transactions[key].ref = ref } trans={ trans } key={ key } />) : ''}
-
-              <button className="form__btn" onClick={ this.addTransaction.bind(this) }>+ transaction</button>
-            </fieldset>
-
-            <fieldset className="form__section">
-              <legend className="form__section-name">Signals for Interface</legend>
-
-              {this.state.signals ? this.state.signals.map((signal, key) =>
-                <Signal ref={ (ref) => this.signals[key].ref = ref } signal={ signal } key={ key } />) : ''}
-
-              <button className="form__btn" onClick={ this.addSignal.bind(this) }>+ signal</button>
-            </fieldset>
-
-            <button className="form__btn" onClick={ this.getDataFromMainForm.bind(this) } type="submit">Next</button>
+            <Environment formData={this.formData} />
+            <TransactionsSection
+              onClick={this.addTransaction}
+              transactions={this.state.transactions}
+              allTransactions={this.transactions}
+            />
+            <SignalsSection
+              onClick={this.addSignal}
+              signals={this.state.signals}
+              allSignals={this.signals}
+            />
+            <button
+              className="btn"
+              onClick={this.getDataFromMainForm.bind(this)}
+              type="submit"
+            >
+              Next
+            </button>
           </form>
         </section>
       </main>
