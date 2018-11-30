@@ -1,0 +1,148 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+.App-header {
+    background-color: #222;
+    height: 150px;
+    padding: 20px;
+    color: white;
+}
+
+.App-title {
+    font-size: 1.5em;
+}
+
+.App-intro {
+    font-size: large;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.form {
+    margin: 30px;
+    font-size: 1rem;
+}
+.form__section{
+    margin: 30px 0;
+    border-radius: 1em;
+    border: solid 1px #ccc;
+}
+.form__title{
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 10px auto;
+}
+.form__input{
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #ccc;
+    margin-left: 10px;
+    width: 200px;
+    font-size: 1em;
+    text-align: center;
+}
+.form__section-name{
+    font-size: 1em;
+    font-weight: bold;
+}
+.form__transaction, .form__signal{
+    margin: 20px 10px;
+}
+.form__transaction .form__input, .form__signal .form__input{
+    width: 150px;
+}
+.form__btn{
+    width: 127px;
+    height: 33px;
+    outline: none;
+    border-radius: 2em;
+    border: solid 1px #ccc;
+    font-size: .8em;
+}
+.form__btn:hover{
+    background: #66ce9c;
+    color: #fff;
+    border-color: #66ce9c;
+}
+
+
+
+
+
+/*.form__input {*/
+    /*border-radius: 2em;*/
+    /*border: none;*/
+    /*padding: 10px;*/
+    /*outline: none;*/
+    /*width: 200px;*/
+/*}*/
+
+.page {
+    /*display: flex;*/
+}
+
+.page__search-result, .page__user-list {
+    width: 50%;
+    padding: 0;
+}
+
+.book {
+    box-shadow: 0 0 20px -2px #ccc;
+    margin: 20px;
+    padding: 10px;
+    list-style: none;
+    overflow: auto;
+}
+
+.book__smallThumbnail {
+    height: 200px;
+    float: left;
+    margin-right: 15px;
+}
+
+.book__description {
+    text-align: justify;
+}
+
+.book__btn {
+    font-size: 1em;
+    background: white;
+    width: 150px;
+    padding: 10px;
+    border-radius: 2em;
+    border: solid 1px #ccc;
+    outline: none;
+}
+
+.book__btn:hover {
+    background: #c55b5d;
+    color: white;
+    border-color: #c55b5d;
+}
+
+.book__authors, .book__publishedDate {
+    text-align: right;
+}
+
+.book__author:not(:last-child):after {
+    content: ', ';
+}
+
+.book__main {
+    overflow: auto;
+}
