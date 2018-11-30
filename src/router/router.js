@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import Generator from '../components/generator';
 import Home from '../components/home';
@@ -30,12 +30,12 @@ const RouterApp = () => {
           </li>
         </ul>
 
-        <Route exact path="/" component={Home} />
-        <Route path="/generator" component={Generator} />
-        <Route path="/archive" component={Archive} />
+        <Route exact path="/" component={ Home } />
+        <Route path="/generator" component={ Generator } />
+        <Route path="/archive" component={ Archive } />
       </div>
     </Router >
   );
-}
+};
 
 export default RouterApp;

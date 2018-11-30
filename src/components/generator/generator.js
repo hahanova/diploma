@@ -28,7 +28,7 @@ export default class Generator extends Component {
     this.formData = {
       name: '',
       type: ''
-    }
+    };
 
   }
 
@@ -57,7 +57,7 @@ export default class Generator extends Component {
 
     this.formData.name = this.formData.name.value;
     this.formData.type = this.formData.type.value;
-    console.log('form: ', this.formData)
+    console.log('form: ', this.formData);
 
 
     for (let i in this.transactions) {
@@ -79,27 +79,27 @@ export default class Generator extends Component {
         </header>
         <section className="page section">
           <form className="form">
-            <Environment formData={this.formData} />
+            <Environment formData={ this.formData } />
 
             <fieldset className="form__section">
               <legend className="form__section-name">Transactions</legend>
 
               {this.state.transactions ? this.state.transactions.map((trans, key) =>
-                <Transaction ref={(ref) => this.transactions[key].ref = ref} trans={trans} key={key} />) : ''}
+                <Transaction ref={ (ref) => this.transactions[key].ref = ref } trans={ trans } key={ key } />) : ''}
 
-              <button className="form__btn" onClick={this.addTransaction.bind(this)}>+ transaction</button>
+              <button className="form__btn" onClick={ this.addTransaction.bind(this) }>+ transaction</button>
             </fieldset>
 
             <fieldset className="form__section">
               <legend className="form__section-name">Signals for Interface</legend>
 
               {this.state.signals ? this.state.signals.map((signal, key) =>
-                <Signal ref={(ref) => this.signals[key].ref = ref} signal={signal} key={key} />) : ''}
+                <Signal ref={ (ref) => this.signals[key].ref = ref } signal={ signal } key={ key } />) : ''}
 
-              <button className="form__btn" onClick={this.addSignal.bind(this)}>+ signal</button>
+              <button className="form__btn" onClick={ this.addSignal.bind(this) }>+ signal</button>
             </fieldset>
 
-            <button className="form__btn" onClick={this.getDataFromMainForm.bind(this)} type="submit">Next</button>
+            <button className="form__btn" onClick={ this.getDataFromMainForm.bind(this) } type="submit">Next</button>
           </form>
         </section>
       </main>
