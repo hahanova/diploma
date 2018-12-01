@@ -9,10 +9,12 @@ export const AgentPage = (props) => {
     return '_' + Math.random().toString(36).substr(2, 9);
   };
 
+  const handleGenerate = () => props.resetAgentAmount();
+
   return (
     <Fragment>
       <FieldArray
-        name={`agent-${randomId()}`}
+        name="agent"
         component={Agent}
       />
 
@@ -24,7 +26,10 @@ export const AgentPage = (props) => {
       </button>
 
       <Link to="/generator/done">
-        <button className="initial-btn btn">
+        <button 
+          className="initial-btn btn" 
+          onClick={handleGenerate}
+        >
           Generate
         </button>
       </Link>

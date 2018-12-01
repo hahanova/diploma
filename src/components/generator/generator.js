@@ -7,12 +7,14 @@ import { HomePage } from './home-page';
 
 import {
   Environment,
-  TransactionsSection,
+  Result,
+  TransactionsPage,
   SignalsSection,
 } from './';
 
 import {
   updateAgentAmount,
+  resetAgentAmount,
   selectAgentAmount,
 } from 'store';
 
@@ -61,8 +63,6 @@ class GeneratorClass extends Component {
 
     this.formData.name = this.formData.name.value;
     this.formData.type = this.formData.type.value;
-    console.log('form: ', this.formData);
-
 
     for (let i in this.transactions) {
       this.transactions[i] = this.transactions[i].ref.getDataTransactions();
@@ -71,15 +71,13 @@ class GeneratorClass extends Component {
     for (let i in this.signals) {
       this.signals[i] = this.signals[i].ref.getDataSignals();
     }
-
-    console.log('trans', this.transactions);
-    console.log('signals', this.signals);
   }
 
   renderContent() {
     const { pathname } = this.props.location;
 
     switch (true) {
+
     case (pathname.includes('env')):
       return <Environment />;
 
@@ -87,7 +85,10 @@ class GeneratorClass extends Component {
       return <AgentPage {...this.props} />;
 
     case (pathname.includes('done')):
-      return <h3>Done</h3>;
+      return <Result />;
+
+    case (pathname.includes('transaction')):
+      return <TransactionsPage />;
 
     default:
       return <HomePage {...this.props} />;
@@ -97,15 +98,25 @@ class GeneratorClass extends Component {
   renderHeader() {
     const { pathname } = this.props.location;
 
-    if (pathname.includes('done')){
+    switch (true) {
+    case (pathname.includes('done')):
       return 'Here is your file!';
-    }
 
-    return 'Let\'s generate template of verification';
+    case (pathname.includes('transaction')):
+      return 'Let\'s create a transaction';
+
+    case (pathname.includes('interface')):
+      return 'Let\'s create a interface';
+
+    case (pathname.includes('sequence')):
+      return 'Let\'s create a sequence';
+
+    default:
+      return 'Let\'s generate template of verification';
+    }
   }
 
   render() {
-
     return (
       <main className="main">
         <header className="heading">
@@ -127,13 +138,14 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   updateAgentAmount,
+  resetAgentAmount,
 };
 
 export const Generator = reduxForm({
   form: 'generatorData',
   enableReinitialize: true,
   initialValues: {
-    env: { 
+    env: {
       baseType: 'uvm_env',
       testbench: false,
     },

@@ -18,27 +18,23 @@ export class HomePage extends Component {
           so you can use it during generating template afterwards.
         </p>
         <div className="btn-wrapper">
-          <button
-            className="btn"
-            // onClick={}
-            type="button"
-          >
+          <Link to="/generator/transaction">
+            <button className="initial-btn btn">
             Create transaction
-          </button>
-          <button
-            className="btn"
-            // onClick={}
-            type="button"
-          >
+            </button>
+          </Link>
+
+          <Link to="/generator/interface">
+            <button className="initial-btn btn">
             Create interface
-          </button>
-          <button
-            className="btn"
-            // onClick={}
-            type="button"
-          >
+            </button>
+          </Link>
+
+          <Link to="/generator/sequence">
+            <button className="initial-btn btn">
             Create sequence
-          </button>
+            </button>
+          </Link>
         </div>
       </section>
     );

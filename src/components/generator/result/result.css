@@ -1,0 +1,18 @@
+.btn_large {
+  width: 224px;
+}
+
+.icon {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.icon:hover {
+  color: #feb386;
+}
+
+.download-wrapper {
+  display: flex;
+  flex-direction: column;
+}

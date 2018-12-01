@@ -1,9 +1,14 @@
 import {
   updateAgentAmountAction,
+  resetAgentAmountAction,
 } from './update-form-action';
 
 export const updateAgentAmount = () => (dispatch) => {
   dispatch(updateAgentAmountAction());
+};
+
+export const resetAgentAmount = () => (dispatch) => {
+  dispatch(resetAgentAmountAction());
 };
 
 // export const updateMobSearchBarState = () => (dispatch) => {
