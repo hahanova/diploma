@@ -12,8 +12,8 @@ import {
 } from './';
 
 import {
-  updateForm,
-  selectForm,
+  updateAgentAmount,
+  selectAgentAmount,
 } from 'store';
 
 import 'styles/index.css';
@@ -34,15 +34,6 @@ class GeneratorClass extends Component {
     this.signals = [
       { name: '', type: '', size: '', id: 'signal_1' }
     ];
-
-    this.name = null;
-    this.type = null;
-    this.formData = {
-      name: '',
-      type: ''
-    };
-
-    this.props.updateForm('hello');
   }
 
   addTransaction(e) {
@@ -119,19 +110,20 @@ class GeneratorClass extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  form: selectForm(state),
+  agentAmount: selectAgentAmount(state),
 });
 
 const mapDispatchToProps = {
-  updateForm,
+  updateAgentAmount,
 };
 
 export const Generator = reduxForm({
-  form: 'simple',
+  form: 'generatorData',
   enableReinitialize: true,
   initialValues: {
-    baseType: 'uvm_env',
-    testbench: false,
-    agentAmount: 1,
+    env: { 
+      baseType: 'uvm_env',
+      testbench: false,
+    },
   },
 })(connect(mapStateToProps, mapDispatchToProps)(GeneratorClass));

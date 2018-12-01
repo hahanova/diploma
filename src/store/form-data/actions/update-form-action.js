@@ -1,6 +1,5 @@
-export const UPDATE_FORM = 'UPDATE_FORM';
+export const UPDATE_AGENT_AMOUNT = 'UPDATE_AGENT_AMOUNT';
 
-export const updateFormAction = (payload) => ({
-  type: UPDATE_FORM,
-  payload,
+export const updateAgentAmountAction = () => ({
+  type: UPDATE_AGENT_AMOUNT
 });

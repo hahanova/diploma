@@ -1,17 +1,33 @@
 import React, { Fragment } from 'react';
+import { FieldArray } from 'redux-form';
 import { Link } from 'react-router-dom';
 
-export const AgentPage = () => {
+import { Agent } from './agent';
+
+export const AgentPage = (props) => {
+  const randomId = () => {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  };
+
   return (
     <Fragment>
-      Hello agent
-      <Link to="/generator/done">Generate</Link>
+      <FieldArray
+        name={`agent-${randomId()}`}
+        component={Agent}
+      />
+
       <button
-        className="btn"
-        type="submit"
+        className="initial-btn btn"
+        onClick={props.updateAgentAmount}
       >
-        Next
+        + add agent
       </button>
+
+      <Link to="/generator/done">
+        <button className="initial-btn btn">
+          Generate
+        </button>
+      </Link>
     </Fragment>
   );
 };

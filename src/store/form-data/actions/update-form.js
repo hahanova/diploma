@@ -1,9 +1,9 @@
 import {
-  updateFormAction,
+  updateAgentAmountAction,
 } from './update-form-action';
 
-export const updateForm = (FormData) => (dispatch) => {
-  dispatch(updateFormAction(FormData));
+export const updateAgentAmount = () => (dispatch) => {
+  dispatch(updateAgentAmountAction());
 };
 
 // export const updateMobSearchBarState = () => (dispatch) => {

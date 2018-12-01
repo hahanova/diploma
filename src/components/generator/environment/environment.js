@@ -10,42 +10,32 @@ export const Environment = () => {
       <fieldset className="form__section">
         <legend className="section-field__name">Environment</legend>
 
-        <label className="form__title" htmlFor="envName">
+        <label className="form__title" htmlFor="env.name">
           Name:
           <Field
             className="form__input"
-            name="envName"
+            name="env.name"
             component="input"
             type="text"
           />
         </label>
 
-        <label className="form__title" htmlFor="baseType">
+        <label className="form__title" htmlFor="env.baseType">
           Base type:
           <Field
             className="form__input"
-            name="baseType"
+            name="env.baseType"
             component="input"
             type="text"
             placeholder="uvm_env"
           />
         </label>
 
-        <label className="form__title" htmlFor="agentAmount">
-          Agent amount:
-          <Field
-            className="form__input"
-            name="agentAmount"
-            component="input"
-            type="number"
-          />
-        </label>
-
-        <label className="form__title container" htmlFor="testbench">
+        <label className="form__title container" htmlFor="env.testbench">
           Include TestBench
           <Field
             className="form__input"
-            name="testbench"
+            name="env.testbench"
             component="input"
             type="checkbox"
             id="testbench"
@@ -53,11 +43,11 @@ export const Environment = () => {
           <span className="checkmark"></span>
         </label>
 
-        <label className="form__title" htmlFor="envConfig">
+        <label className="form__title" htmlFor="env.config">
           Config:
           <Field
             className="form__input textarea"
-            name="envConfig"
+            name="env.config"
             component="textarea"
             type="text"
           />

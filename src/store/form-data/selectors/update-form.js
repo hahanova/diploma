@@ -1,1 +1,1 @@
-export const selectForm = (state) => state.formData.form;
+export const selectAgentAmount = (state) => state.formData.agentAmount;

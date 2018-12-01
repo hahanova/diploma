@@ -1,20 +1,21 @@
 import {
-  UPDATE_FORM,
+  UPDATE_AGENT_AMOUNT,
 } from '../actions';
 
 const initialState = {
-  searchWord: '',
-  isActiveMobSearchBar: false,
-  suggestions: [],
-  keyword: '',
+  agentAmount: 1,
+  // searchWord: '',
+  // isActiveMobSearchBar: false,
+  // suggestions: [],
+  // keyword: '',
 };
 
 const updateFormCollection = new Map([
-  [UPDATE_FORM, (state, action) => ({
+  [UPDATE_AGENT_AMOUNT, (state) => ({
     ...state,
-    form: action.payload,
+    agentAmount: state.agentAmount + 1,
   })],
-]);
+]);//add reset agentAmount
 
 export const formData = (state = initialState, action) => {
   if (!updateFormCollection.has(action.type)) {
