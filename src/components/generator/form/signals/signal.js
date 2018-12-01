@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Field } from 'redux-form';
 
 import 'styles/index.css';
 import '../../generator.css';
@@ -9,18 +10,8 @@ export class Signal extends Component {
     this.props = props;
   }
 
-  getDataSignals() {
-    const {
-      name,
-      type,
-      size,
-    } = this.props.signal;
-
-    this.props.signal.name = name.value;
-    this.props.signal.type = type.value;
-    this.props.signal.size = size.value;
-
-    return this.props.signal;
+  randomId() {
+    return '_';
   }
 
   render() {
@@ -30,9 +21,30 @@ export class Signal extends Component {
 
     return (
       <div className="section-field" id={id}>
-        <input ref={node => { this.props.signal.name = node; }} className="form__input" type="text" id="signal-name" placeholder="name" />
-        <input ref={node => { this.props.signal.type = node; }} className="form__input" type="text" id="signal-type" placeholder="type" />
-        <input ref={node => { this.props.signal.size = node; }} className="form__input" type="number" id="signal-size" placeholder="size" />
+        <Field
+          className="form__input"
+          name={`signal-name${this.randomId()}`}
+          component="input"
+          type="text"
+          placeholder="name"
+        />
+        <Field
+          className="form__input"
+          name={`signal-type${this.randomId()}`}
+          component="input"
+          type="text"
+          placeholder="type"
+        />
+        <Field
+          className="form__input"
+          name={`signal-size${this.randomId()}`}
+          component="input"
+          type="number"
+          placeholder="size"
+        />
+        {/* <input ref={node => { this.props.signal.name = node; }} className="form__input" type="text" id="signal-name" placeholder="name" /> */}
+        {/* <input ref={node => { this.props.signal.type = node; }} className="form__input" type="text" id="signal-type" placeholder="type" />
+        <input ref={node => { this.props.signal.size = node; }} className="form__input" type="number" id="signal-size" placeholder="size" /> */}
       </div>
     );
   }

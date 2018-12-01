@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { reduxForm } from 'redux-form';
+
+import { AgentPage } from './agent-page';
+import { HomePage } from './home-page';
 
 import {
   Environment,
@@ -15,13 +19,13 @@ import {
 import 'styles/index.css';
 import './generator.css';
 
-class Generator extends Component {
+class GeneratorClass extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       signals: [{ name: '', type: '', size: '', id: 'signal_1' }],
-      transactions: [{ name: '', type: '', size: '', id: 'transaction_1' }]
+      transactions: [{ name: '', type: '', size: '', id: 'transaction_1' }],
     };
 
     this.transactions = [
@@ -81,6 +85,25 @@ class Generator extends Component {
     console.log('signals', this.signals);
   }
 
+  renderContent() {
+    const { pathname } = this.props.location;
+
+    switch (true) {
+    case (pathname.includes('env')):
+      return <Environment {...this.props} />;
+
+    case (pathname.includes('agent')):
+      return <AgentPage {...this.props} />;
+
+    case (pathname.includes('done')):
+      return <h3>Done</h3>;
+
+    default:
+      return <HomePage {...this.props} />;
+    }
+
+  }
+
   render() {
     return (
       <main className="main">
@@ -88,27 +111,7 @@ class Generator extends Component {
           <h2>Let's generate template of verification</h2>
         </header>
         <section className="page section">
-          <form className="form">
-            <Environment formData={this.formData} />
-            <TransactionsSection
-              onClick={this.addTransaction.bind(this)}
-              transactions={this.state.transactions}
-              allTransactions={this.transactions}
-            />
-            <SignalsSection
-              onClick={this.addSignal.bind(this)}
-              signals={this.state.signals}
-              allSignals={this.signals}
-            />
-            <button
-              className="btn"
-              onClick={this.getDataFromMainForm.bind(this)}
-              type="submit"
-            >
-              Next
-            </button>
-            {this.props.form}
-          </form>
+          {this.renderContent()}
         </section>
       </main>
     );
@@ -119,9 +122,11 @@ const mapStateToProps = (state) => ({
   form: selectForm(state),
 });
 
-
 const mapDispatchToProps = {
   updateForm,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Generator);
+export const Generator = reduxForm({
+  form: 'simple' // a unique identifier for this form
+})(connect(mapStateToProps, mapDispatchToProps)(GeneratorClass));
+

@@ -7,7 +7,7 @@ export const Environment = (props) => {
       <label className="form__title" htmlFor="env-name">
         Name:
         <input
-          ref={ node => { props.formData.name = node; } }
+          // ref={ node => { props.formData.name = node; } }
           className="form__input"
           type="text"
           id="env-name"
@@ -17,7 +17,7 @@ export const Environment = (props) => {
 
       <label className="form__title" htmlFor="env-type">Type:
         <input
-          ref={ node => { props.formData.type = node; } }
+          // ref={ node => { props.formData.type = node; } }
           className="form__input"
           type="text"
           id="env-type"
