@@ -2,7 +2,7 @@ import React from 'react';
 
 import Transaction from './transaction';
 
-import '../../generator.css';
+import '../generator.css';
 
 export const TransactionsSection = (props) => {
   return (

@@ -3,7 +3,7 @@ import { FieldArray } from 'redux-form';
 
 import Signal from './signal';
 
-import '../../generator.css';
+import '../generator.css';
 
 export const SignalsSection = (props) => {
   const renderSignal = () => {

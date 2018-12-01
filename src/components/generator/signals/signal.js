@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field } from 'redux-form';
 
 import 'styles/index.css';
-import '../../generator.css';
+import '../generator.css';
 
 export class Signal extends Component {
   constructor(props) {

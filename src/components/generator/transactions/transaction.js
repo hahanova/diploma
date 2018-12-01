@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import 'styles/index.css';
-import '../../generator.css';
+import '../generator.css';
 
 export class Transaction extends Component {
   constructor(props) {

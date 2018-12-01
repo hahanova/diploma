@@ -9,7 +9,7 @@ import {
   Environment,
   TransactionsSection,
   SignalsSection,
-} from './form';
+} from './';
 
 import {
   updateForm,
@@ -90,7 +90,7 @@ class GeneratorClass extends Component {
 
     switch (true) {
     case (pathname.includes('env')):
-      return <Environment {...this.props} />;
+      return <Environment />;
 
     case (pathname.includes('agent')):
       return <AgentPage {...this.props} />;
@@ -127,6 +127,11 @@ const mapDispatchToProps = {
 };
 
 export const Generator = reduxForm({
-  form: 'simple' // a unique identifier for this form
+  form: 'simple',
+  enableReinitialize: true,
+  initialValues: {
+    baseType: 'uvm_env',
+    testbench: false,
+    agentAmount: 1,
+  },
 })(connect(mapStateToProps, mapDispatchToProps)(GeneratorClass));
-
