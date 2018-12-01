@@ -20,7 +20,7 @@ export const SignalsSection = (props) => {
 
       <button
         className="btn"
-        onClick={addSignal}
+        onClick={props.onClick}
       >
         + signal
       </button>

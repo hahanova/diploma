@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../../../../styles/index.css';
+import 'styles/index.css';
 import '../../generator.css';
 
 export class Signal extends Component {

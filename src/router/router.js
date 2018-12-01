@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import Generator from '../components/generator';
-import Home from '../components/home';
+import Generator from 'components/generator';
+import Home from 'components/home';
 
 import './menu.css';
 

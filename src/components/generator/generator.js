@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import {
   Environment,
   TransactionsSection,
   SignalsSection,
 } from './form';
 
-import '../../styles/index.css';
+import {
+  updateForm,
+  selectForm,
+} from 'store';
+
+import 'styles/index.css';
 import './generator.css';
 
-export default class Generator extends Component {
-  constructor() {
-    super();
+class Generator extends Component {
+  constructor(props) {
+    super(props);
 
     this.state = {
       signals: [{ name: '', type: '', size: '', id: 'signal_1' }],
@@ -30,6 +37,8 @@ export default class Generator extends Component {
       name: '',
       type: ''
     };
+
+    this.props.updateForm('hello');
   }
 
   addTransaction(e) {
@@ -42,7 +51,7 @@ export default class Generator extends Component {
     this.setState({ transactions: this.transactions });
   }
 
-  addSignal = (e) =>  {
+  addSignal(e) {
     e.preventDefault();
     let lastSignal = this.signals[this.signals.length - 1];
     let id = +lastSignal.id.match(/\d+/)[0];
@@ -82,12 +91,12 @@ export default class Generator extends Component {
           <form className="form">
             <Environment formData={this.formData} />
             <TransactionsSection
-              onClick={this.addTransaction}
+              onClick={this.addTransaction.bind(this)}
               transactions={this.state.transactions}
               allTransactions={this.transactions}
             />
             <SignalsSection
-              onClick={this.addSignal}
+              onClick={this.addSignal.bind(this)}
               signals={this.state.signals}
               allSignals={this.signals}
             />
@@ -98,9 +107,21 @@ export default class Generator extends Component {
             >
               Next
             </button>
+            {this.props.form}
           </form>
         </section>
       </main>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  form: selectForm(state),
+});
+
+
+const mapDispatchToProps = {
+  updateForm,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Generator);
