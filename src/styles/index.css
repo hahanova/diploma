@@ -36,6 +36,7 @@ fieldset {
   text-align: center;
   text-transform: uppercase;
   font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 18px;
 }
 
 .btn{

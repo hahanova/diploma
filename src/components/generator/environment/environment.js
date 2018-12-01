@@ -38,7 +38,7 @@ export const Environment = () => {
             name="env.testbench"
             component="input"
             type="checkbox"
-            id="testbench"
+            id="env.testbench"
           />
           <span className="checkmark"></span>
         </label>

@@ -7,6 +7,8 @@ import {
   selectAgentAmount,
 } from 'store';
 
+import './agent.css';
+
 export const AgentClass = (props) => {
   const agentsArray = Array.from({ length: props.agentAmount }, (value, index) => index + 1);
 
@@ -41,8 +43,18 @@ export const AgentClass = (props) => {
           className="form__input"
           name={`agent${index}.monitor`}
           component="input"
-          type="number"
+          type="text"
         />
+        <Field 
+          className="form__input field-with-select"
+          name={`agent${index}.monitor`} 
+          component="select"
+        >
+          <option></option>
+          <option value="ff0000">Red</option>
+          <option value="00ff00">Green</option>
+          <option value="0000ff">Blue</option>
+        </Field>
       </label>
 
       <label className="form__title" htmlFor={`agent${index}.driver`}>
@@ -54,6 +66,56 @@ export const AgentClass = (props) => {
           type="text"
           id="testbench"
         />
+        <Field 
+          className="form__input field-with-select"
+          name={`agent${index}.driver`} 
+          component="select"
+        >
+          <option></option>
+          <option value="ff0000">Red</option>
+          <option value="00ff00">Green</option>
+          <option value="0000ff">Blue</option>
+        </Field>
+      </label>
+
+      <label className="form__title" htmlFor={`agent${index}.sequencer`}>
+        Sequencer
+        <Field
+          className="form__input"
+          name={`agent${index}.sequencer`}
+          component="input"
+          type="text"
+        />
+        <Field 
+          className="form__input field-with-select"
+          name={`agent${index}.sequencer`} 
+          component="select"
+        >
+          <option></option>
+          <option value="ff0000">Red</option>
+          <option value="00ff00">Green</option>
+          <option value="0000ff">Blue</option>
+        </Field>
+      </label>
+
+      <label className="form__title" htmlFor={`agent${index}.interface`}>
+        Interface
+        <Field
+          className="form__input"
+          name={`agent${index}.interface`}
+          component="input"
+          type="text"
+        />
+        <Field 
+          className="form__input field-with-select"
+          name={`agent${index}.interface`} 
+          component="select"
+        >
+          <option></option>
+          <option value="ff0000">Red</option>
+          <option value="00ff00">Green</option>
+          <option value="0000ff">Blue</option>
+        </Field>
       </label>
 
       <label className="form__title" htmlFor={`agent${index}.config`}>

@@ -92,14 +92,26 @@ class GeneratorClass extends Component {
     default:
       return <HomePage {...this.props} />;
     }
+  }
 
+  renderHeader() {
+    const { pathname } = this.props.location;
+
+    if (pathname.includes('done')){
+      return 'Here is your file!';
+    }
+
+    return 'Let\'s generate template of verification';
   }
 
   render() {
+
     return (
       <main className="main">
         <header className="heading">
-          <h2>Let's generate template of verification</h2>
+          <h2>
+            {this.renderHeader()}
+          </h2>
         </header>
         <section className="page section">
           {this.renderContent()}
