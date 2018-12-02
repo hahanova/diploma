@@ -3,41 +3,44 @@ import { Field } from 'redux-form';
 import { connect } from 'react-redux';
 
 import {
-  selectTransactionFieldsAmount,
+  selectSequenceFieldsAmount,
 } from 'store';
 
-export const TransactionFieldComponent = (props) => {
-  const transactionFieldsArray = Array.from(
-    { length: props.transactionFieldsAmount },
+export const SequenceFieldComponent = (props) => {
+  const sequenceFieldsArray = Array.from(
+    { length: props.sequenceFieldsAmount },
     (value, index) => index + 1,
   );
 
-  return transactionFieldsArray.map((index) => (
-    <div className="section-field" key={`trans-${index}`}>
+  return sequenceFieldsArray.map((index) => (
+    <div className="section-field" key={`sequence-${index}`}>
       <Field
         className="form__input creating"
-        name={`transaction${index}.type`}
-        component="input"
-        type="text"
-        placeholder="name"
-      />
-      <Field
-        className="form__input creating"
-        name={`transaction${index}.typeSize`}
-        component="input"
-        type="text"
-        placeholder="name"
-      />
-      <Field
-        className="form__input creating"
-        name={`transaction${index}.name`}
+        name={`sequence${index}.type`}
         component="input"
         type="text"
         placeholder="type"
       />
+
       <Field
         className="form__input creating"
-        name={`transaction${index}.nameSize`}
+        name={`sequence${index}.typeSize`}
+        component="input"
+        type="text"
+        placeholder="size"
+      />
+
+      <Field
+        className="form__input creating"
+        name={`sequence${index}.name`}
+        component="input"
+        type="text"
+        placeholder="name"
+      />
+      
+      <Field
+        className="form__input creating"
+        name={`sequence${index}.nameSize`}
         component="input"
         type="text"
         placeholder="size"
@@ -47,7 +50,7 @@ export const TransactionFieldComponent = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  transactionFieldsAmount: selectTransactionFieldsAmount(state),
+  sequenceFieldsAmount: selectSequenceFieldsAmount(state),
 });
 
-export const TransactionField = connect(mapStateToProps)(TransactionFieldComponent);
+export const SequenceField = connect(mapStateToProps)(SequenceFieldComponent);

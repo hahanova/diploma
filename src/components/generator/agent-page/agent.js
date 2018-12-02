@@ -8,7 +8,7 @@ import {
 
 import './agent.css';
 
-export const AgentClass = (props) => {
+export const AgentComponent = (props) => {
   const agentsArray = Array.from({ length: props.agentAmount }, (value, index) => index + 1);
 
   return agentsArray.map((index) => (
@@ -134,4 +134,4 @@ const mapStateToProps = (state) => ({
   agentAmount: selectAgentAmount(state),
 });
 
-export const Agent = connect(mapStateToProps)(AgentClass);
+export const Agent = connect(mapStateToProps)(AgentComponent);

@@ -5,12 +5,15 @@ import {
   RESET_TRANSACTION_FIELDS_AMOUNT,
   UPDATE_SIGNAL_FIELDS_AMOUNT,
   RESET_SIGNAL_FIELDS_AMOUNT,
+  UPDATE_SEQUENCE_FIELDS_AMOUNT,
+  RESET_SEQUENCE_FIELDS_AMOUNT,
 } from '../actions';
 
 const initialState = {
   agentAmount: 1,
   transactionFieldsAmount: 1,
   signalFieldsAmount: 1,
+  sequenceFieldsAmount: 1,
 };
 
 const updateFormCollection = new Map([
@@ -37,6 +40,14 @@ const updateFormCollection = new Map([
   [RESET_SIGNAL_FIELDS_AMOUNT, (state) => ({
     ...state,
     signalFieldsAmount: initialState.signalFieldsAmount,
+  })],
+  [UPDATE_SEQUENCE_FIELDS_AMOUNT, (state) => ({
+    ...state,
+    sequenceFieldsAmount: state.sequenceFieldsAmount + 1,
+  })],
+  [RESET_SEQUENCE_FIELDS_AMOUNT, (state) => ({
+    ...state,
+    sequenceFieldsAmount: initialState.sequenceFieldsAmount,
   })],
 ]);
 

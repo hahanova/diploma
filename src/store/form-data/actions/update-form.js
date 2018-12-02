@@ -1,3 +1,5 @@
+import { reset } from 'redux-form';
+
 import {
   updateAgentAmountAction,
   resetAgentAmountAction,
@@ -5,7 +7,13 @@ import {
   resetTransactionFieldsAmountAction,
   updateSignalFieldsAmountAction,
   resetSignalFieldsAmountAction,
+  updateSequenceFieldsAmountAction,
+  resetSequenceFieldsAmountAction,
 } from './update-form-action';
+
+export const resetForm = () => (dispatch) => {
+  dispatch(reset('generatorData'));
+};
 
 export const updateAgentAmount = () => (dispatch) => {
   dispatch(updateAgentAmountAction());
@@ -29,4 +37,12 @@ export const updateSignalFieldsAmount = () => (dispatch) => {
 
 export const resetSignalFieldsAmount = () => (dispatch) => {
   dispatch(resetSignalFieldsAmountAction());
+};
+
+export const updateSequenceFieldsAmount = () => (dispatch) => {
+  dispatch(updateSequenceFieldsAmountAction());
+};
+
+export const resetSequenceFieldsAmount = () => (dispatch) => {
+  dispatch(resetSequenceFieldsAmountAction());
 };

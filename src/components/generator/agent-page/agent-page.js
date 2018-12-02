@@ -8,10 +8,6 @@ import { Agent } from './agent';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const AgentPage = (props) => {
-  // const randomId = () => {
-  //   return '_' + Math.random().toString(36).substr(2, 9);
-  // };
-
   const handleGenerate = () => {
     props.resetAgentAmount();
 
@@ -29,7 +25,7 @@ export const AgentPage = (props) => {
         className="initial-btn btn"
         onClick={props.updateAgentAmount}
       >
-        + add agent
+        add agent
       </button>
 
       <Link to="/generator/done">

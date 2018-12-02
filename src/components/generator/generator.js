@@ -9,20 +9,21 @@ import { HomePage } from './home-page';
 import {
   Environment,
   Result,
-  TransactionsPage,
-  SignalsSection,
+  Transaction,
+  Interface,
+  Sequence,
 } from './';
 
 import {
+  resetForm,
   updateAgentAmount,
   resetAgentAmount,
-  selectAgentAmount,
   updateTransactionFieldsAmount,
   resetTransactionFieldsAmount,
-  selectTransactionFieldsAmount,
   updateSignalFieldsAmount,
   resetSignalFieldsAmount,
-  selectSignalFieldsAmount,
+  updateSequenceFieldsAmount,
+  resetSequenceFieldsAmount,
 } from 'store';
 
 import 'styles/index.css';
@@ -35,7 +36,7 @@ class GeneratorClass extends Component {
     switch (true) {
 
     case (pathname.includes('env')):
-      return <Environment />;
+      return <Environment/>;
 
     case (pathname.includes('agent')):
       return <AgentPage {...this.props} />;
@@ -44,7 +45,13 @@ class GeneratorClass extends Component {
       return <Result {...this.props} />;
 
     case (pathname.includes('transaction')):
-      return <TransactionsPage {...this.props} />;
+      return <Transaction {...this.props} />;
+
+    case (pathname.includes('interface')):
+      return <Interface {...this.props} />;
+
+    case (pathname.includes('sequence')):
+      return <Sequence {...this.props} />;
 
     default:
       return <HomePage {...this.props} />;
@@ -89,19 +96,16 @@ class GeneratorClass extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  agentAmount: selectAgentAmount(state),
-  transactionFieldsAmount: selectTransactionFieldsAmount(state),
-  signalFieldsAmount: selectSignalFieldsAmount(state),
-});
-
 const mapDispatchToProps = {
+  resetForm,
   updateAgentAmount,
   resetAgentAmount,
   updateTransactionFieldsAmount,
   resetTransactionFieldsAmount,
   updateSignalFieldsAmount,
   resetSignalFieldsAmount,
+  updateSequenceFieldsAmount,
+  resetSequenceFieldsAmount,
 };
 
 export const Generator = reduxForm({
@@ -113,4 +117,4 @@ export const Generator = reduxForm({
       testbench: false,
     },
   },
-})(connect(mapStateToProps, mapDispatchToProps)(GeneratorClass));
+})(connect(null, mapDispatchToProps)(GeneratorClass));
