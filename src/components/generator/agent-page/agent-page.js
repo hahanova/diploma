@@ -1,15 +1,22 @@
 import React, { Fragment } from 'react';
 import { FieldArray } from 'redux-form';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { Agent } from './agent';
 
-export const AgentPage = (props) => {
-  const randomId = () => {
-    return '_' + Math.random().toString(36).substr(2, 9);
-  };
+import 'react-toastify/dist/ReactToastify.css';
 
-  const handleGenerate = () => props.resetAgentAmount();
+export const AgentPage = (props) => {
+  // const randomId = () => {
+  //   return '_' + Math.random().toString(36).substr(2, 9);
+  // };
+
+  const handleGenerate = () => {
+    props.resetAgentAmount();
+
+    toast('🦄 Your file is successfully generated!');
+  };
 
   return (
     <Fragment>

@@ -3,9 +3,8 @@
 }
 
 .icon {
-  font-size: 3em;
+  font-size: 7em;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .icon:hover {
@@ -15,4 +14,15 @@
 .download-wrapper {
   display: flex;
   flex-direction: column;
+}
+
+.dowload-text{
+  text-align: center;
+}
+
+.download-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  outline: none;
 }

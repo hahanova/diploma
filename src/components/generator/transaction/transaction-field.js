@@ -1,11 +1,20 @@
 import React from 'react';
 import { Field } from 'redux-form';
+import { connect } from 'react-redux';
+
+import {
+  selectTransactionFieldsAmount,
+} from 'store';
 
 import '../generator.css';
 
-export const Transaction = (props) => {
-  const index = 1;
-  return (
+export const TransactionFieldClass = (props) => {
+  const transactionFieldsArray = Array.from(
+    { length: props.transactionFieldsAmount },
+    (value, index) => index + 1,
+  );
+
+  return transactionFieldsArray.map((index) => (
     <div className="section-field">
       <Field
         className="form__input"
@@ -29,7 +38,11 @@ export const Transaction = (props) => {
         placeholder="size"
       />
     </div>
-  );
+  ));
+};
 
-}
+const mapStateToProps = (state) => ({
+  transactionFieldsAmount: selectTransactionFieldsAmount(state),
+});
 
+export const TransactionField = connect(mapStateToProps)(TransactionFieldClass);

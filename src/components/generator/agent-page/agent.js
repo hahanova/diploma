@@ -3,7 +3,6 @@ import { Field } from 'redux-form';
 import { connect } from 'react-redux';
 
 import {
-  updateAgentAmount,
   selectAgentAmount,
 } from 'store';
 
@@ -135,8 +134,4 @@ const mapStateToProps = (state) => ({
   agentAmount: selectAgentAmount(state),
 });
 
-const mapDispatchToProps = {
-  updateAgentAmount,
-};
-
-export const Agent = connect(mapStateToProps, mapDispatchToProps)(AgentClass);
+export const Agent = connect(mapStateToProps)(AgentClass);

@@ -11,7 +11,7 @@ export default class Home extends Component {
             <h2>Welcome</h2>
           </header>
           <p>My name is Anastasia Hahanova. I would like to perform for you VHDL generator.</p>
-          <p>The principle work as following:</p>
+          <p>The principle works as following:</p>
           <ol>
             <li>
               You enter data for environments, such as: name, base type, configs.

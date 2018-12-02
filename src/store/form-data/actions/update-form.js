@@ -1,6 +1,10 @@
 import {
   updateAgentAmountAction,
   resetAgentAmountAction,
+  updateTransactionFieldsAmountAction,
+  resetTransactionFieldsAmountAction,
+  updateSignalFieldsAmountAction,
+  resetSignalFieldsAmountAction,
 } from './update-form-action';
 
 export const updateAgentAmount = () => (dispatch) => {
@@ -11,13 +15,18 @@ export const resetAgentAmount = () => (dispatch) => {
   dispatch(resetAgentAmountAction());
 };
 
-// export const updateMobSearchBarState = () => (dispatch) => {
-//   dispatch(updateMobSearchBarStateAction());
-// };
+export const updateTransactionFieldsAmount = () => (dispatch) => {
+  dispatch(updateTransactionFieldsAmountAction());
+};
 
-// export const updateSearchResults = (payload) => (dispatch) => {
-//   getSearchResults(payload)
-//     .then((response) => {
-//       dispatch(updateSearchResultsAction(response));
-//     })
-// };
+export const resetTransactionFieldsAmount = () => (dispatch) => {
+  dispatch(resetTransactionFieldsAmountAction());
+};
+
+export const updateSignalFieldsAmount = () => (dispatch) => {
+  dispatch(updateSignalFieldsAmountAction());
+};
+
+export const resetSignalFieldsAmount = () => (dispatch) => {
+  dispatch(resetSignalFieldsAmountAction());
+};

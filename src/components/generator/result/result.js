@@ -1,14 +1,42 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { formValueSelector } from 'redux-form';
+
+import { agent } from 'templates';
 
 import './result.css';
 
-export const Result = () => {
+export const ResultClass = (props) => {
+  const { name } = props;
+  const generatedData = agent({ name });
+
+  const handleDownload = () => {
+    const file = new Blob([generatedData], { type: 'text/plain' });
+
+    const element = document.createElement('a');
+    element.href = URL.createObjectURL(file);
+    element.download = 'your-file.sv';
+    element.click();
+  };
+
   return (
     <Fragment>
       <section className="download-wrapper">
-        <i className="fas fa-file-code icon"></i>
-        <p className="">Press the icon to download</p>
+        <button
+          className="download-btn"
+          onClick={handleDownload}
+        >
+          <i className="fas fa-file-code icon"></i>
+        </button>
+        <p className="dowload-text">Press the icon to download</p>
+      </section>
+
+      <section className="download-wrapper">
+        <p className="dowload-text">Quick view</p>
+        <pre>
+          {generatedData}
+        </pre>
       </section>
 
       <Link to="/generator/env">
@@ -19,3 +47,18 @@ export const Result = () => {
     </Fragment>
   );
 };
+
+const selector = formValueSelector('generatorData');
+
+export const Result = connect(
+  state => {
+    // const testbench = selector(state, 'env.testbench');
+    const name = selector(state, 'env.name');
+    // const { firstName, lastName } = selector(state, 'firstName', 'lastName')
+    return {
+      // testbench,
+      name,
+      // fullName: `${firstName || ''} ${lastName || ''}`
+    };
+  }
+)(ResultClass);

@@ -17,6 +17,12 @@ import {
   updateAgentAmount,
   resetAgentAmount,
   selectAgentAmount,
+  updateTransactionFieldsAmount,
+  resetTransactionFieldsAmount,
+  selectTransactionFieldsAmount,
+  updateSignalFieldsAmount,
+  resetSignalFieldsAmount,
+  selectSignalFieldsAmount,
 } from 'store';
 
 import 'styles/index.css';
@@ -35,7 +41,7 @@ class GeneratorClass extends Component {
       return <AgentPage {...this.props} />;
 
     case (pathname.includes('done')):
-      return <Result />;
+      return <Result {...this.props} />;
 
     case (pathname.includes('transaction')):
       return <TransactionsPage {...this.props} />;
@@ -85,11 +91,17 @@ class GeneratorClass extends Component {
 
 const mapStateToProps = (state) => ({
   agentAmount: selectAgentAmount(state),
+  transactionFieldsAmount: selectTransactionFieldsAmount(state),
+  signalFieldsAmount: selectSignalFieldsAmount(state),
 });
 
 const mapDispatchToProps = {
   updateAgentAmount,
   resetAgentAmount,
+  updateTransactionFieldsAmount,
+  resetTransactionFieldsAmount,
+  updateSignalFieldsAmount,
+  resetSignalFieldsAmount,
 };
 
 export const Generator = reduxForm({
