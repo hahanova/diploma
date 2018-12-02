@@ -19,14 +19,14 @@ export const TransactionFieldComponent = (props) => {
         name={`transaction${index}.type`}
         component="input"
         type="text"
-        placeholder="name"
+        placeholder="type"
       />
       <Field
         className="form__input creating"
         name={`transaction${index}.typeSize`}
         component="input"
         type="text"
-        placeholder="name"
+        placeholder="size"
       />
       <Field
         className="form__input creating"

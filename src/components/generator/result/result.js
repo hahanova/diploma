@@ -11,12 +11,14 @@ export const ResultClass = (props) => {
   const { name } = props;
   const generatedData = agent({ name });
 
+  localStorage.setItem(`sv-${name}`, generatedData);
+
   const handleDownload = () => {
     const file = new Blob([generatedData], { type: 'text/plain' });
 
     const element = document.createElement('a');
     element.href = URL.createObjectURL(file);
-    element.download = 'your-file.sv';
+    element.download = `${name.slice(3)}.sv`;
     element.click();
   };
 

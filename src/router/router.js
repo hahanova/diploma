@@ -1,18 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import { Generator } from 'components/generator';
-import Home from 'components/home';
+import {
+  Generator,
+  Home,
+  Archive,
+} from 'components';
 
 import './menu.css';
-
-function Archive() {
-  return (
-    <div>
-      <h2>Archive</h2>
-    </div>
-  );
-}
 
 const RouterApp = () => {
   return (
@@ -26,12 +21,12 @@ const RouterApp = () => {
             <Link to="/generator">Generator</Link>
           </li>
           <li>
-            <Link to="/topics">Archive</Link>
+            <Link to="/archive">Archive</Link>
           </li>
         </ul>
 
         <Route exact path="/" component={Home} />
-        <Route path="/generator" component={Generator}/>
+        <Route path="/generator" component={Generator} />
         <Route path="/archive" component={Archive} />
       </div>
     </Router>
