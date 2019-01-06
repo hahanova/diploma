@@ -26,7 +26,7 @@ export const Interface = (props) => {
 
         <button
           className="btn"
-          onClick={props.updateSignalFieldsAmount}
+          onClick={props.increaseSignalFieldsAmount}
         >
           add field
         </button>

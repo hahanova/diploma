@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import {
   selectAgentAmount,
+  increaseAgentAmount,
+  decreaseAgentAmount,
+  resetAgentAmount,
 } from 'store';
 
 import './agent.css';
@@ -13,6 +16,12 @@ export const AgentComponent = (props) => {
 
   return agentsArray.map((index) => (
     <fieldset className="form__section" key={index}>
+      <button
+        className="btn btn_close btn_close-agent"
+        onClick={props.decreaseAgentAmount}
+      >
+        x
+      </button>
       <legend className="section-field__name">Agent {index}</legend>
 
       <label className="form__title" htmlFor={`agent${index}.name`}>
@@ -44,9 +53,9 @@ export const AgentComponent = (props) => {
           component="input"
           type="text"
         />
-        <Field 
+        <Field
           className="form__input field-with-select"
-          name={`agent${index}.monitor`} 
+          name={`agent${index}.monitor`}
           component="select"
         >
           <option></option>
@@ -65,9 +74,9 @@ export const AgentComponent = (props) => {
           type="text"
           id="testbench"
         />
-        <Field 
+        <Field
           className="form__input field-with-select"
-          name={`agent${index}.driver`} 
+          name={`agent${index}.driver`}
           component="select"
         >
           <option></option>
@@ -85,9 +94,9 @@ export const AgentComponent = (props) => {
           component="input"
           type="text"
         />
-        <Field 
+        <Field
           className="form__input field-with-select"
-          name={`agent${index}.sequencer`} 
+          name={`agent${index}.sequencer`}
           component="select"
         >
           <option></option>
@@ -105,9 +114,9 @@ export const AgentComponent = (props) => {
           component="input"
           type="text"
         />
-        <Field 
+        <Field
           className="form__input field-with-select"
-          name={`agent${index}.interface`} 
+          name={`agent${index}.interface`}
           component="select"
         >
           <option></option>
@@ -134,4 +143,10 @@ const mapStateToProps = (state) => ({
   agentAmount: selectAgentAmount(state),
 });
 
-export const Agent = connect(mapStateToProps)(AgentComponent);
+const mapDispatchToProps = {
+  increaseAgentAmount,
+  decreaseAgentAmount,
+  resetAgentAmount,
+};
+
+export const Agent = connect(mapStateToProps, mapDispatchToProps)(AgentComponent);

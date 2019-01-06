@@ -27,7 +27,7 @@ export const Transaction = (props) => {
 
         <button
           className="btn"
-          onClick={props.updateTransactionFieldsAmount}
+          onClick={props.increaseTransactionFieldsAmount}
         >
           add field
         </button>

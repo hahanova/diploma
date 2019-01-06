@@ -1,7 +1,7 @@
 .section-field {
   display: flex;
   justify-content: space-evenly;
-  margin: 25px 0;
+  margin: 25px 15px;
 }
 
 .section-field__name {
@@ -52,4 +52,14 @@
 .page__search-result, .page__user-list {
   width: 50%;
   padding: 0;
+}
+
+.btn_close {
+  width: 33px;
+}
+
+.btn_close-agent {
+  position: relative;
+  top: -31px;
+  right: -336px;
 }

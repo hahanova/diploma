@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import {
   selectTransactionFieldsAmount,
+  increaseTransactionFieldsAmount,
+  decreaseTransactionFieldsAmount,
+  resetTransactionFieldsAmount,
 } from 'store';
 
 export const TransactionFieldComponent = (props) => {
@@ -42,6 +45,12 @@ export const TransactionFieldComponent = (props) => {
         type="text"
         placeholder="size"
       />
+      <button
+        className="btn btn_close"
+        onClick={props.decreaseTransactionFieldsAmount}
+      >
+        x
+      </button>
     </div>
   ));
 };
@@ -50,4 +59,10 @@ const mapStateToProps = (state) => ({
   transactionFieldsAmount: selectTransactionFieldsAmount(state),
 });
 
-export const TransactionField = connect(mapStateToProps)(TransactionFieldComponent);
+const mapDispatchToProps = {
+  increaseTransactionFieldsAmount,
+  decreaseTransactionFieldsAmount,
+  resetTransactionFieldsAmount,
+};
+
+export const TransactionField = connect(mapStateToProps, mapDispatchToProps)(TransactionFieldComponent);

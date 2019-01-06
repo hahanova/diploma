@@ -23,7 +23,7 @@ export const AgentPage = (props) => {
 
       <button
         className="initial-btn btn"
-        onClick={props.updateAgentAmount}
+        onClick={props.increaseAgentAmount}
       >
         add agent
       </button>

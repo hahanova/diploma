@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import {
   selectSequenceFieldsAmount,
+  increaseSequenceFieldsAmount,
+  decreaseSequenceFieldsAmount,
+  resetSequenceFieldsAmount,
 } from 'store';
 
 export const SequenceFieldComponent = (props) => {
@@ -37,7 +40,7 @@ export const SequenceFieldComponent = (props) => {
         type="text"
         placeholder="name"
       />
-      
+
       <Field
         className="form__input creating"
         name={`sequence${index}.nameSize`}
@@ -45,6 +48,12 @@ export const SequenceFieldComponent = (props) => {
         type="text"
         placeholder="size"
       />
+      <button
+        className="btn btn_close"
+        onClick={props.decreaseSequenceFieldsAmount}
+      >
+        x
+      </button>
     </div>
   ));
 };
@@ -53,4 +62,10 @@ const mapStateToProps = (state) => ({
   sequenceFieldsAmount: selectSequenceFieldsAmount(state),
 });
 
-export const SequenceField = connect(mapStateToProps)(SequenceFieldComponent);
+const mapDispatchToProps = {
+  increaseSequenceFieldsAmount,
+  decreaseSequenceFieldsAmount,
+  resetSequenceFieldsAmount,
+};
+
+export const SequenceField = connect(mapStateToProps, mapDispatchToProps)(SequenceFieldComponent);

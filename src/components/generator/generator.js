@@ -16,13 +16,17 @@ import {
 
 import {
   resetForm,
-  updateAgentAmount,
+  increaseAgentAmount,
+  decreaseAgentAmount,
   resetAgentAmount,
-  updateTransactionFieldsAmount,
+  increaseTransactionFieldsAmount,
+  decreaseTransactionFieldsAmount,
   resetTransactionFieldsAmount,
-  updateSignalFieldsAmount,
+  increaseSignalFieldsAmount,
+  decreaseSignalFieldsAmount,
   resetSignalFieldsAmount,
-  updateSequenceFieldsAmount,
+  increaseSequenceFieldsAmount,
+  decreaseSequenceFieldsAmount,
   resetSequenceFieldsAmount,
 } from 'store';
 
@@ -98,13 +102,17 @@ class GeneratorClass extends Component {
 
 const mapDispatchToProps = {
   resetForm,
-  updateAgentAmount,
+  increaseAgentAmount,
+  decreaseAgentAmount,
   resetAgentAmount,
-  updateTransactionFieldsAmount,
+  increaseTransactionFieldsAmount,
+  decreaseTransactionFieldsAmount,
   resetTransactionFieldsAmount,
-  updateSignalFieldsAmount,
+  increaseSignalFieldsAmount,
+  decreaseSignalFieldsAmount,
   resetSignalFieldsAmount,
-  updateSequenceFieldsAmount,
+  increaseSequenceFieldsAmount,
+  decreaseSequenceFieldsAmount,
   resetSequenceFieldsAmount,
 };
 

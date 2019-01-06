@@ -18,7 +18,7 @@ export const ResultClass = (props) => {
 
     const element = document.createElement('a');
     element.href = URL.createObjectURL(file);
-    element.download = `${name.slice(3)}.sv`;
+    element.download = `${name}.sv`;
     element.click();
   };
 

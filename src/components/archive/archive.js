@@ -21,7 +21,7 @@ export class Archive extends Component {
     const files = this.getAllData();
     const filesList = files.map((name, index) => (
       <li 
-        key="name"
+        key={name}
         onClick={() => this.handleDownload(name)}
         className="file-name"
         title="download file"

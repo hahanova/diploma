@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 
 import {
   selectSignalFieldsAmount,
+  increaseSignalFieldsAmount,
+  decreaseSignalFieldsAmount,
+  resetSignalFieldsAmount,
 } from 'store';
 
 export const SignalFieldComponent = (props) => {
@@ -45,6 +48,12 @@ export const SignalFieldComponent = (props) => {
         type="text"
         placeholder="size"
       />
+      <button
+        className="btn btn_close"
+        onClick={props.decreaseSignalFieldsAmount}
+      >
+        x
+      </button>
     </div>
   ));
 };
@@ -53,4 +62,10 @@ const mapStateToProps = (state) => ({
   signalFieldsAmount: selectSignalFieldsAmount(state),
 });
 
-export const SignalField = connect(mapStateToProps)(SignalFieldComponent);
+const mapDispatchToProps = {
+  increaseSignalFieldsAmount,
+  decreaseSignalFieldsAmount,
+  resetSignalFieldsAmount,
+};
+
+export const SignalField = connect(mapStateToProps, mapDispatchToProps)(SignalFieldComponent);
