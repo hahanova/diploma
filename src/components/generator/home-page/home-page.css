@@ -14,6 +14,7 @@ a {
 .btn-wrapper {
   display: flex;
   flex-direction: column;
+  margin-top: 35px;
 }
 
 .btn-wrapper .btn {

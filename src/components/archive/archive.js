@@ -20,7 +20,7 @@ export class Archive extends Component {
   render() {
     const files = this.getAllData();
     const filesList = files.map((name, index) => (
-      <li 
+      <li
         key={name}
         onClick={() => this.handleDownload(name)}
         className="file-name"
@@ -36,10 +36,12 @@ export class Archive extends Component {
           <header className="heading">
             <h2>Archive</h2>
           </header>
-          <p>Here is a list of files that were made before:</p>
-          <ul>
-            {filesList}
-          </ul>
+          <div className="paragraph">
+            <p>Here is a list of files that were made before:</p>
+            <ul>
+              {filesList}
+            </ul>
+          </div>
         </section>
       </main>
     );
