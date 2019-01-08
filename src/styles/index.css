@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Thasadith');
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   background-color: #e6e9f0;
+  overflow-x: hidden;
 }
 
 input {
@@ -23,9 +25,10 @@ fieldset {
 }
 
 .section {
-  font-family: 'Arial', sans-serif;
-  color: #9d999d;
+  font-family: 'Thasadith', sans-serif;
+  color: #777;
   font-size: 1.2em;
+  width: 100%;
 }
 
 .heading {
@@ -36,7 +39,54 @@ fieldset {
   text-align: center;
   text-transform: uppercase;
   font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 18px;
+}
+
+.heading_small{
+  height: initial;
+  margin: 0;
+}
+
+.heading_left{
+  text-align: left;
+  padding: 0;
+}
+
+.paragraph{
+  margin: 0 10px;
+}
+
+.paragraph__description{
+  font-style: 90%;
+}
+
+.paragraph__pic{
+  width: 40%;
+}
+
+.paragraph__pic:nth-child(2){
+  width: 20%;
+}
+
+.paragraph__pic img{
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.paragraph_section{
+  display: flex;
+}
+
+.welcome-description{
+  border-bottom: dashed 1px grey;
+  padding-bottom: 30px;
+}
+
+.author{
+  border-bottom: dashed 1px grey;
+  border-top: dashed 1px grey;
+  padding: 30px 0;
+  font-size: 90%;
 }
 
 .btn{
@@ -54,9 +104,20 @@ fieldset {
   border-color: #feb386;
 }
 
+.text-center{
+  text-align: center;
+}
+
 @media (max-width: 550px) {
-  .main {
-    width: 100%;
-    margin: 0 10px;
+  .paragraph_section{
+    display: block;
+  }
+
+  .paragraph__pic img{
+    width: 216px;
+  }
+
+  .paragraph__pic{
+    margin: 0 auto;
   }
 }

@@ -2,3 +2,10 @@
   position: absolute;
   margin-left: 390px !important;
 }
+
+@media (max-width: 550px) {
+  .field-with-select {
+    position: relative;
+    margin-left: 0 !important;
+  }
+}

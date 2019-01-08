@@ -1,7 +1,7 @@
 .section-field {
   display: flex;
   justify-content: space-evenly;
-  margin: 25px 15px;
+  margin: 25px 0;
 }
 
 .section-field__name {
@@ -62,4 +62,18 @@
   position: relative;
   top: -31px;
   right: -336px;
+}
+
+@media screen and (max-width: 700px){
+  .section-field{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form__title{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 20px);
+    padding: 0 20px;
+  }
 }

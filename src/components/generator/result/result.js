@@ -36,7 +36,7 @@ export const ResultClass = (props) => {
 
       <section className="download-wrapper">
         <p className="dowload-text">Quick view</p>
-        <pre>
+        <pre className="generated-code">
           {generatedData}
         </pre>
       </section>
