@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding');
+
 .btn_large {
   width: 224px;
 }
@@ -25,4 +27,13 @@
   border: none;
   color: #ccc;
   outline: none;
+}
+
+.generated-code{
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-size: .7em;
+  line-height: 1.5em;
+  padding: 20px;
+  background: #fff;
+  border-radius: 0 100px 0 0;
 }
