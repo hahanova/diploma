@@ -14,6 +14,11 @@ export const Interface = (props) => {
 
   return (
     <Fragment>
+      <header className="heading">
+        <h2>
+          Let's create a interface
+        </h2>
+      </header>
       <fieldset className="form__section">
         <legend className="section-field__name">
           Interface

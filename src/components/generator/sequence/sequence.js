@@ -27,6 +27,11 @@ export const Sequence = (props) => {
 
   return (
     <Fragment>
+      <header className="heading">
+        <h2>
+          Let's create a sequence
+        </h2>
+      </header>
       <fieldset className="form__section">
         <legend className="section-field__name">
           Sequence

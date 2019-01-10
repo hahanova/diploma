@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { ToastContainer } from 'react-toastify';
@@ -17,16 +18,12 @@ import {
 import {
   resetForm,
   increaseAgentAmount,
-  decreaseAgentAmount,
   resetAgentAmount,
   increaseTransactionFieldsAmount,
-  decreaseTransactionFieldsAmount,
   resetTransactionFieldsAmount,
   increaseSignalFieldsAmount,
-  decreaseSignalFieldsAmount,
   resetSignalFieldsAmount,
   increaseSequenceFieldsAmount,
-  decreaseSequenceFieldsAmount,
   resetSequenceFieldsAmount,
 } from 'store';
 
@@ -34,65 +31,43 @@ import 'styles/index.css';
 import './generator.css';
 
 class GeneratorClass extends Component {
-  renderContent() {
-    const { pathname } = this.props.location;
-
-    switch (true) {
-
-    case (pathname.includes('env')):
-      return <Environment/>;
-
-    case (pathname.includes('agent')):
-      return <AgentPage {...this.props} />;
-
-    case (pathname.includes('done')):
-      return <Result {...this.props} />;
-
-    case (pathname.includes('transaction')):
-      return <Transaction {...this.props} />;
-
-    case (pathname.includes('interface')):
-      return <Interface {...this.props} />;
-
-    case (pathname.includes('sequence')):
-      return <Sequence {...this.props} />;
-
-    default:
-      return <HomePage {...this.props} />;
-    }
-  }
-
-  renderHeader() {
-    const { pathname } = this.props.location;
-
-    switch (true) {
-    case (pathname.includes('done')):
-      return 'Here is your file!';
-
-    case (pathname.includes('transaction')):
-      return 'Let\'s create a transaction';
-
-    case (pathname.includes('interface')):
-      return 'Let\'s create a interface';
-
-    case (pathname.includes('sequence')):
-      return 'Let\'s create a sequence';
-
-    default:
-      return 'Let\'s generate template of verification';
-    }
-  }
-
   render() {
     return (
       <main className="main">
-        <header className="heading">
-          <h2>
-            {this.renderHeader()}
-          </h2>
-        </header>
         <section className="page section">
-          {this.renderContent()}
+          <Switch>
+            <Route
+              path="/generator/env"
+              component={Environment}
+            />
+            <Route
+              path="/generator/agent"
+              component={()=> <AgentPage {...this.props} />}
+            />
+            <Route
+              path="/generator/done"
+              component={()=> <Result {...this.props} />}
+            />
+            <Route
+              path="/generator/transaction"
+              component={()=> <Transaction {...this.props} />}
+            />
+            <Route
+              path="/generator/interface"
+              component={()=> <Interface {...this.props} />}
+            />
+            <Route
+              path="/generator/sequence"
+              component={()=> <Sequence {...this.props} />}
+            />
+            <Route
+              path="/generator/agent"
+              component={()=> <AgentPage {...this.props} />}
+            />
+            <Route
+              component={()=> <HomePage {...this.props} />}
+            />
+          </Switch>
         </section>
         <ToastContainer />
       </main>
@@ -103,16 +78,12 @@ class GeneratorClass extends Component {
 const mapDispatchToProps = {
   resetForm,
   increaseAgentAmount,
-  decreaseAgentAmount,
   resetAgentAmount,
   increaseTransactionFieldsAmount,
-  decreaseTransactionFieldsAmount,
   resetTransactionFieldsAmount,
   increaseSignalFieldsAmount,
-  decreaseSignalFieldsAmount,
   resetSignalFieldsAmount,
   increaseSequenceFieldsAmount,
-  decreaseSequenceFieldsAmount,
   resetSequenceFieldsAmount,
 };
 

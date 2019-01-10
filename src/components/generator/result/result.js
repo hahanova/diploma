@@ -24,6 +24,11 @@ export const ResultClass = (props) => {
 
   return (
     <Fragment>
+      <header className="heading">
+        <h2>
+          Here is your file!
+        </h2>
+      </header>
       <section className="download-wrapper">
         <button
           className="download-btn"

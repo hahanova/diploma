@@ -44,7 +44,7 @@ export class Home extends Component {
               </div>
             </div>
             <p className="paragraph__description author text-center">
-              The web-service was developed by Anastasia Hahanova as thesis. <br/> 2019.
+              The web-service was developed by Anastasia Hahanova for thesis. <br/> 2019.
             </p>
           </div>
         </section>

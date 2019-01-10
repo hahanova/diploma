@@ -15,6 +15,11 @@ export const Transaction = (props) => {
 
   return (
     <Fragment>
+      <header className="heading">
+        <h2>
+          Let's create a transaction
+        </h2>
+      </header>
       <fieldset className="form__section">
         <legend className="section-field__name">
           Transaction
@@ -44,8 +49,8 @@ export const Transaction = (props) => {
       </fieldset>
 
       <Link to="/generator">
-        <button 
-          className="initial-btn btn" 
+        <button
+          className="initial-btn btn"
           onClick={handleClick}
         >
           Create
